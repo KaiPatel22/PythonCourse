@@ -18,31 +18,31 @@ def isLeapYear():
         print("Invalid year")
         return
     if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-       print(year, "is a leap year")
+       return True
     else:
-         print(year, "is not a leap year")
+        return False
 
 def displayMaximumNumber():
     num1 = int(input("Enter first number: "))
     num2 = int(input("Enter second number: "))
     num3 = int(input("Enter third number: "))
     if (num1 >= num2 and num1 >= num3):
-        print("Maximum number is:", num1)
+        return num1
     elif (num2 >= num1 and num2 >= num3):
-        print("Maximum number is:", num2)
+        return num2
     else:
-        print("Maximum number is:", num3)
+        return num3
 
 def isPrime():
     num = int(input("Enter a number: "))
     if (num <= 1):
-        print(num, "is not a prime number")
+        return False
     elif (num == 2 or num == 3 or num == 5 or num == 7):
-        print(num, "is a prime number")
+        return False
     elif (num % 2 == 0 or num % 3 == 0 or num % 5 == 0 or  num % 7):
-        print(num, "is not a prime number")
+        return False
     else:
-        print(num, "is a prime number")
+       return True
 
 def fibonacciNumbers():
     n = int(input("Enter the number of Fibonacci numbers to print: "))
@@ -52,4 +52,14 @@ def fibonacciNumbers():
         sequence.append(next_number)
     print(sequence[:n])
     
-fibonacciNumbers()
+def calculateNewSalary(current_salary, job_level):
+    if (job_level == 3):
+        hike_percentage = 0.15
+    elif (job_level == 4):
+        hike_percentage = 0.07
+    elif (job_level == 5):
+        hike_percentage = 0.05
+    else:
+        hike_percentage = 0.0
+    new_salary = current_salary + (current_salary * hike_percentage)
+    return new_salary
