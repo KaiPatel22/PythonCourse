@@ -80,3 +80,21 @@ def is_palindrome(num):
 
 print(is_palindrome(12321))
 print(is_palindrome(12345))
+
+def findDivisors(num):
+    total = 0
+    for i in range(1, num):
+        if num % i == 0:
+            total += i
+    return total
+
+def check_amicable_numbers(num1, num2):
+    sum1 = findDivisors(num1)
+    sum2 = findDivisors(num2)
+    if (sum1 == num2 and sum2 == num1):
+        print(str(num1) + str(num2) + " are amicable numbers")
+        return True
+    else:
+        print(str(num1) + str(num2) + " are not amicable numbers", sep=" ")
+        return False
+print(check_amicable_numbers(220, 284))
