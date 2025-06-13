@@ -7,7 +7,6 @@ Display the count of such adjacent occurrences.
 def countAdjacentOccurences(numList):
     count = 0
     for i in range(1, len(numList)):
-        print(f"Comparing {numList[i]} and {numList[i - 1]}")
         if numList[i] == numList[i - 1]:
             count += 1
     return count
