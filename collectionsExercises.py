@@ -65,7 +65,7 @@ def encode(message):
     repeatedCount = 1
     for i in range(0, len(message)-1):
         print("i:", i, "currentChar:", message[i], "nextChar:", message[i+1], "i:", i, "len(message):", len(message))
-        if (message[i] == message[i+1] and i < len(message)):
+        if (message[i] == message[i+1] and i < len(message)-2):
             print(f"INSIDE IF STATEMENT: {message[i]} == {message[i+1]} and repeatedCount: {repeatedCount}")
             repeatedCount += 1
         else:
