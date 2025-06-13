@@ -95,6 +95,24 @@ def check_amicable_numbers(num1, num2):
         print(str(num1) + str(num2) + " are amicable numbers")
         return True
     else:
-        print(str(num1) + str(num2) + " are not amicable numbers", sep=" ")
+        print(str(num1) + " " + str(num2) + " are not amicable numbers")
         return False
+
 print(check_amicable_numbers(220, 284))
+
+def rightshift(num, n):
+    return num >> n 
+
+print(rightshift(60, 2))
+
+def check_strong_number(num):
+    sum = 0
+    numArray = [int(digit) for digit in str(num)]
+    for i in numArray:
+        sum += factorial(i)
+    if sum == num:
+        return True
+    else:
+        return False
+    
+print(check_strong_number(145))
