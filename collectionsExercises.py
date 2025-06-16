@@ -118,4 +118,69 @@ def encode_message(msg):
         returnString += newWord + " "
     return returnString
 
-print(encode_message("the sun rises in the east"))  # Example usage
+print(encode_message("the sun rises in the east"))
+
+'''
+Write a Python program to find the number of characters present the given string.
+
+Write a Python program to find the numbers of words present in the given sentence.
+'''
+
+def count_characters(message):
+    numOfChars = 0
+    for char in message:
+        if char != " ":
+            numOfChars += 1
+    return numOfChars
+
+print(count_characters("Hello World!"))
+
+def count_words(sentence):
+    words = sentence.split(" ")
+    return len(words)
+
+print(count_words("This is my sentence to check how many words there are."))
+
+'''
+Write a Python function words_count(sentence) to return a dictionary with the length of words as key and number words with such length as value.
+
+Example: sentence=“I love python and it so easy to learn” sample output={1:1,4:2,5:1,3:1,2:3,6:1}
+'''
+
+def words_counts(sentence):
+    wordsInSentence = sentence.split(" ")
+    dictionary = {}
+    for word in wordsInSentence:
+        lengthOfWord = len(word)
+        if lengthOfWord in dictionary:
+            dictionary[lengthOfWord] += 1
+        else:
+            dictionary[lengthOfWord] = 1
+    return dictionary
+
+print(words_counts("I love python and it so easy to learn"))
+
+'''
+Write a Python function vowel_count(sentence) to return a dictionary with vowels, consonants, others as key and respective number of vowels, consonants, others characters as value.
+
+Note: Do case insensitive operations
+
+Example: sentence=“I love python and it so easy to learn”
+sample output={“vowels”:12,”consonants”:17, “others”:8}
+'''
+
+def vowel_count(sentence):
+    vowelList = ['a', 'e', 'i', 'o', 'u']
+    constantsList = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+    dictionary = {"vowels": 0, "consonants": 0, "others": 0}
+    sentence = sentence.lower()
+    for char in sentence:
+        if char in vowelList:
+            dictionary["vowels"] += 1
+        elif char in constantsList:
+            dictionary["consonants"] += 1
+        else:
+             dictionary["others"] += 1
+    return dictionary
+
+print(vowel_count("I love python and it so easy to learn"))
