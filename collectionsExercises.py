@@ -62,17 +62,14 @@ print(generate_leap_years(2021))
 
 def encode(message):
     returnString = ""
-    repeatedCount = 1
-    for i in range(0, len(message)-1):
-        print("i:", i, "currentChar:", message[i], "nextChar:", message[i+1], "i:", i, "len(message):", len(message))
-        if (message[i] == message[i+1] and i < len(message)-2):
-            print(f"INSIDE IF STATEMENT: {message[i]} == {message[i+1]} and repeatedCount: {repeatedCount}")
-            repeatedCount += 1
+    occruences = 1
+    for i in range(1, len(message)):
+        if (message[i] == message[i-1]):
+            occruences += 1
         else:
-            print(f"INSIDE ELSE STATEMENT: {message[i]} != {message[i+1]} and repeatedCount: {repeatedCount}")
-            returnString += f"{repeatedCount}{message[i-1]}"
-            repeatedCount = 1
-
+            returnString += str(occruences) + message[i-1]
+            occruences = 1
+    returnString += str(occruences) + message[-1]
     return returnString
 
 print(encode("AAAABBBBCCCCCCCC"))
