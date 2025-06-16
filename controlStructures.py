@@ -38,7 +38,7 @@ def isPrime():
     if (num <= 1):
         return False
     elif (num == 2 or num == 3 or num == 5 or num == 7):
-        return False
+        return True
     elif (num % 2 == 0 or num % 3 == 0 or num % 5 == 0 or  num % 7):
         return False
     else:
