@@ -73,3 +73,11 @@ def encode(message):
     return returnString
 
 print(encode("AAAABBBBCCCCCCCC"))
+
+def translate(b_dict, list_words):
+    for i in range(len(list_words)):
+        if list_words[i] in b_dict:
+            list_words[i] = b_dict.get(list_words[i])
+    return list_words
+
+print(translate({"merry":"god", "christmas":"jul", "and":"och", "happy":"gott", "new":"nytt", "year":"ar"}, ["merry", "year", "and", "new", "happy", "christmas"]))
