@@ -81,3 +81,41 @@ def translate(b_dict, list_words):
     return list_words
 
 print(translate({"merry":"god", "christmas":"jul", "and":"och", "happy":"gott", "new":"nytt", "year":"ar"}, ["merry", "year", "and", "new", "happy", "christmas"]))
+
+'''
+Write a python function, encrypt_sentence(msg) which accepts a message and encrypts it based on rules given below and returns the encrypted message.
+
+Words at odd position -> Reverse It
+
+Words at even position -> Rearrange the characters so that all consonants appear before the vowels and their order should not change
+
+Note: Assume that the sentence would begin with a word and there will be only a single space between the words.
+
+          Perform case sensitive string operations wherever necessary.
+
+Example: msg=the sun rises in the east    output=eht snu sesir ni eht stea
+'''
+
+def encode_message(msg):
+    returnString = ""
+    wordsInMsg = msg.split(" ")
+    vowelList = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    for i in range(len(wordsInMsg)):
+        currentWord = wordsInMsg[i]
+        if (i % 2 != 0):
+            newWord = ""
+            vowelSection = ""
+            constantSection = ""
+            for i in range(len(currentWord)):
+                currentChar = currentWord[i]
+                if (currentChar in vowelList):
+                    vowelSection += currentChar
+                else:
+                    constantSection += currentChar
+            newWord = constantSection + vowelSection
+        else:
+            newWord = currentWord[::-1]
+        returnString += newWord + " "
+    return returnString
+
+print(encode_message("the sun rises in the east"))  # Example usage
